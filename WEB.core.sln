@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB.core", "WEB.core\WEB.core.csproj", "{BB9ACDDD-09F0-4A0A-8903-8B4BAFAD168F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEB.core", "WEB.core\WEB.core.csproj", "{BB9ACDDD-09F0-4A0A-8903-8B4BAFAD168F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{9F3293C2-E9B1-44D9-9A47-761B26E1D458}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{9F3293C2-E9B1-44D9-9A47-761B26E1D458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinesLayer", "BussinesLayer\BussinesLayer.csproj", "{98C63B30-1582-4B67-894C-8FDDA8FC9051}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9F3293C2-E9B1-44D9-9A47-761B26E1D458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F3293C2-E9B1-44D9-9A47-761B26E1D458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F3293C2-E9B1-44D9-9A47-761B26E1D458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98C63B30-1582-4B67-894C-8FDDA8FC9051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C63B30-1582-4B67-894C-8FDDA8FC9051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C63B30-1582-4B67-894C-8FDDA8FC9051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C63B30-1582-4B67-894C-8FDDA8FC9051}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
