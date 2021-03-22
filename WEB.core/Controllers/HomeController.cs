@@ -5,22 +5,27 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DataLayer;
+using DataLayer.Entities;
+using Microsoft.EntityFrameworkCore;
 using WEB.core.Models;
 
 namespace WEB.core.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly EFDBContext _context;
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(EFDBContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Directory> _dirs = _context.Directory.Include(x => x.Materials).ToList();
+            return View(_dirs);
         }
 
         public IActionResult Privacy()
