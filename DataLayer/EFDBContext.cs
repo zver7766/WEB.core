@@ -24,7 +24,8 @@ namespace DataLayer
         public EFDBContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<EFDBContext>();
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-17CEBQV; Database=loftblogASPCoreDb; Persist Security Info=false; User ID='sa'; Password='sa'; MultipleActiveResultSets=True; Trusted_Connection=True;", b=> b.MigrationsAssembly("DataLayer"));
+            optionsBuilder.UseSqlServer(
+                "Data Source=DESKTOP-17CEBQV; Database=loftblogASPCoreDb; Persist Security Info=false; User ID='sa'; Password='sa'; MultipleActiveResultSets=True; Trusted_Connection=True;", b => b.MigrationsAssembly("DataLayer"));
 
             return new EFDBContext(optionsBuilder.Options);
         }
