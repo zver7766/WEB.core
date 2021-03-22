@@ -7,9 +7,9 @@ namespace BussinesLayer.Interfaces
 {
     public interface IMaterialsRepository
     {
-        IEnumerable<Material> GetAllDirectories(bool includeDirectory = false);
+        IEnumerable<Material> GetAllMaterials(bool includeDirectory = false);
 
-        Material GetMaterialById(int directoryId, bool includeDirectory = false);
+        Material GetMaterialById(int materialId, bool includeDirectory = false);
         void SaveMaterial(Material mateiral);
         void DeleteMaterial(Material mateiral);
     }

@@ -10,7 +10,7 @@ namespace BussinesLayer.Interfaces
         IEnumerable<Directory> GetAllDirectories(bool includeMaterials = false);
 
         Directory GetDirectoryById(int directoryId, bool includeMaterials = false);
-        void SaveDirectory(Directory achieve);
-        void DeleteDirectory(Directory achieve);
+        void SaveDirectory(Directory directory);
+        void DeleteDirectory(Directory directory);
     }
 }
