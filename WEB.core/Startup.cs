@@ -8,8 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BussinesLayer;
+using BussinesLayer.Implementations;
+using BussinesLayer.Interfaces;
 using DataLayer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 namespace WEB.core
 {
@@ -30,6 +34,10 @@ namespace WEB.core
             services.AddDbContext<EFDBContext>(options =>
                 options.UseSqlServer(connection, b => b.MigrationsAssembly("DataLayer")));
 
+            services.AddTransient<IDirectoryRepository,EFDirectoryRepository>();
+            services.AddTransient<IMaterialsRepository,EFMaterialsRepository>();
+
+            services.AddScoped<DataManager>();
             services.AddControllersWithViews();
 
         }
