@@ -13,10 +13,10 @@ namespace PresentationLayer.Services
     {
         private DataManager dataManager;
         private MaterialService materialService;
-        public DirectoryService(DataManager dataManager, MaterialService materialService)
+        public DirectoryService(DataManager dataManager)
         {
             this.dataManager = dataManager;
-            this.materialService = materialService;
+            this.materialService = new MaterialService(dataManager);
         }
 
         public List<DirectoryViewModel> GetDirectoriesList()
@@ -31,7 +31,7 @@ namespace PresentationLayer.Services
             return _modelList;
         }
 
-        private DirectoryViewModel DirectoryDBToViewModelById(int directoryId)
+        public DirectoryViewModel DirectoryDBToViewModelById(int directoryId)
         {
             var _directory = dataManager.Directories.GetDirectoryById(directoryId, true);
 

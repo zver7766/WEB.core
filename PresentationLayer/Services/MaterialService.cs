@@ -25,7 +25,7 @@ namespace PresentationLayer.Services
                 Material = dataManager.Materials.GetMaterialById(materialId,true),
             };
             var _dir = dataManager.Directories.GetDirectoryById(_model.Material.DirectoryId);
-            if (_dir.Materials.IndexOf(_model.Material) != _dir.Materials.Count())
+            if (_dir.Materials.IndexOf(_model.Material) != _dir.Materials.Count()-1)
             {
                 _model.NextMaterial = _dir.Materials.ElementAt(_dir.Materials.IndexOf(_model.Material) + 1);
             }
@@ -33,27 +33,37 @@ namespace PresentationLayer.Services
             return _model;
         }
 
-        public DirectoryViewModel SaveMaterialEditModelToDb(DirectoryEditModel directoryEditModel)
+        public MaterialEditModel GetMaterialEditModel(int materialId)
         {
-            Directory _directoryDbModel;
-            if (directoryEditModel.Id != 0)
+            var _dbModel = dataManager.Materials.GetMaterialById(materialId);
+            var _editModel = new MaterialEditModel()
             {
-                _directoryDbModel = dataManager.Directories.GetDirectoryById(directoryEditModel.Id);
+                Id = _dbModel.Id = _dbModel.Id,
+                DirectoryId = _dbModel.DirectoryId,
+                Title = _dbModel.Title,
+                Html = _dbModel.Html,
+            };
+            return _editModel;
+        }
+
+        public MaterialViewModel SaveMaterialEditModelToDb(MaterialEditModel editModel)
+        {
+            Material material;
+            if (editModel.Id != 0)
+            {
+                material = dataManager.Materials.GetMaterialById(editModel.Id);
             }
             else
             {
-                _directoryDbModel = new Directory();
+                material = new Material();
             }
-            _directoryDbModel.Title = directoryEditModel.Title;
-            _directoryDbModel.Html = directoryEditModel.Html;
 
-            dataManager.Directories.SaveDirectory(_directoryDbModel);
-
-            return DirectoryDBToViewModelById(_directoryDbModel.Id);
-            //var _directory = directoryEditModel;
-            //dataManager.Directories.SaveDirectory(_directory);
-            //directoryViewModel.Directory = _directory;
-            //return directoryViewModel;
+            material.Title = editModel.Title;
+            material.Html = editModel.Html;
+            material.DirectoryId = editModel.DirectoryId;
+            dataManager.Materials.SaveMaterial(material);
+            return MaterialDBModelToView(material.Id);
         }
+        
     }
 }
